@@ -22,4 +22,8 @@ export class FirstDependencyService {
   initValue(): void {
     this.defaultValue = "one";
   }
+
+  initValue2(text: string): void {
+    this.defaultValue = "two" + text;
+  }
 }

@@ -10,6 +10,7 @@ export class TestingService {
   constructor(firstDependencyService: FirstDependencyService) {
     this.firstDependencyService = firstDependencyService;
     this.firstDependencyService.initValue();
+    this.firstDependencyService.initValue2('!');
   }
 
   getValue(index: number): string {
@@ -20,5 +21,9 @@ export class TestingService {
   getIndex(): number {
 
     return 2;
+  }
+
+  sayHi(message: string): void {
+    this.firstDependencyService.initValue2(message);
   }
 }
