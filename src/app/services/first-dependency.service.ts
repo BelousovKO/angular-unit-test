@@ -5,13 +5,22 @@ import { Injectable } from '@angular/core';
 })
 export class FirstDependencyService {
   defaultValue: string | undefined;
+  private  nameValue: string;
+  age: number;
 
-  get defaultString(): string {
+  get name(): string {
 
-    return <string>this.defaultValue;
+    return this.nameValue;
   }
 
-  constructor() { }
+  set name(value: string) {
+    this.nameValue = value;
+  }
+
+  constructor() {
+    this.age = 5;
+    this.nameValue = "Mike";
+  }
 
   returnValue(index: number): string {
     const values = ["one", "two", "three"];
@@ -25,5 +34,9 @@ export class FirstDependencyService {
 
   initValue2(text: string): void {
     this.defaultValue = "two" + text;
+  }
+
+  doSomething(): void {
+    console.log("something");
   }
 }
